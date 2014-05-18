@@ -31,7 +31,7 @@
 	
 	//Class newUser
 	class newUser{
-		private $pseudo,$nom,$prenom,$email,$adresse,$mdp1,$mdp2,$validator;
+		private $pseudo,$nom,$prenom,$email,$adresse,$mdp1,$mdp2,$validator,$salt;
 		
 		public function __construct($pseudo,$nom,$prenom,$email,$adresse,$mdp1,$mdp2)
 		{	
@@ -43,6 +43,9 @@
 			$this->mdp1=$mdp1;
 			$this->mdp2=$mdp2;
 			$this->adresse=$adresse;
+			//Generation de la cle unique pour cryptage du mot de passe
+			$size = mcrypt_get_iv_size(MCRYPT_CAST_256, MCRYPT_MODE_CFB);
+			$this->salt=mcrypt_create_iv($size, MCRYPT_DEV_RANDOM);
 			//Creation de l'objet de validation
 			$this->validator = new validator();
 			$this->validate();
@@ -71,7 +74,9 @@
 				try
 				{
 					$pdo->beginTransaction();
-					$pdo->query('INSERT INTO Utilisateur SET Pseudo =\''.$this->pseudo.'\', Nom = \''.$this->nom.'\',Prenom=\''.$this->prenom.'\',Email=\''.$this->email.'\',Mdp=\''.$this->mdp1.'\',Adresse=\''.$this->adresse.'\' ');
+					//Cryptage du mot de passe avant envoie dans la BDD
+					$hash=md5($this->salt+$this->mdp1);
+					$pdo->query('INSERT INTO Utilisateur SET Pseudo =\''.$this->pseudo.'\', Nom = \''.$this->nom.'\',Prenom=\''.$this->prenom.'\',Email=\''.$this->email.'\',Mdp=\''.$hash.'\',Salt=\''.$this->salt.'\',Adresse=\''.$this->adresse.'\' ');
 					$pdo->commit();
 					echo 'Vous êtes maintenant inscrit.';
 				}
@@ -85,6 +90,7 @@
 	}
 
      
+	
         
 	//Class FormInscription
 	class FormInscription{

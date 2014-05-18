@@ -13,6 +13,19 @@
 		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	</head>
 	<body>
+		<?php 
+		try
+		{
+		    // On se connecte à MySQL
+		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		}
+		catch(Exception $e)
+		{
+		    // En cas d'erreur, on affiche un message et on arrête tout
+			die('Erreur : '.$e->getMessage());
+		}
+		?>
+		
 		<!-- Header -->
 		<?php include("../header/header.php"); ?>
 		
@@ -22,267 +35,132 @@
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
+				
 				<!-- Menu latéral gauche -->
-				<aside class="sidebar">
-					<ul class="alt-nav" role="navigation">
-						<li>
-							<a href="book.php" class="menu-link">
-								<span class="hover">
-									<span class="icon-container" style="background-color: #1AA1E1;"><span class="icon" style="background-image: url(../../images/book.png);"></span></span>
-									<span id="title-book" class="title">Livres</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="movie.php" class="menu-link">
-								<span class="hover">
-									<span class="icon-container" style="background-color: #CE5043;"><span class="icon" style="background-image: url(../../images/movie.png);"></span></span>
-									<span id="title-movie" class="title">Films</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="gaming.php" class="menu-link">
-								<span class="hover">
-									<span class="icon-container" style="background-color: #B3C833;"><span class="icon" style="background-image: url(../../images/gaming.png);"></span></span>
-									<span id="title-game" class="title">Jeux Vidéo</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="party.php" class="menu-link">
-								<span class="hover">
-									<span class="icon-container" style="background-color: #FB8521;"><span class="icon" style="background-image: url(../../images/party.png);"></span></span>
-									<span id="title-party" class="title">Jeux de Société</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="school.php" class="menu-link">
-								<span class="hover">
-									<span class="icon-container" style="background-color: #658092;"><span class="icon" style="background-image: url(../../images/book.png);"></span></span>
-									<span id="title-school" style="background-color: #658092; color: #FFFFFF;" class="title">Scolaire</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-				</aside>
+				<?php include ("../sidebar/sidebar.php"); ?>
 				<div class="clear"></div>
-				<!-- Section -->
+				
+				<!-- Contenu -->
 				<div class="main">
 					<section class="feature">
+						
+						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
 								<h1>Mathématiques</h1>
+								<?php
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE etat = maths'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								{   
+								?>
 								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
+									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
+									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
+									<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
+									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
+								<?php 
+								}
+								$reponse->closeCursor(); // Termine le traitement de la requête
+								?>
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="#">PLUS</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</article>
-						<article>
-							<div class="feature-high">
-								<h1>Français</h1>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-							</div>
-							<div class="feature-down">
-								<div class="more">
-									<a href="#">PLUS</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</article>
-						<article>
-							<div class="feature-high">
-								<h1>Informatique</h1>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-							</div>
-							<div class="feature-down">
-								<div class="more">
-									<a href="#">PLUS</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</article>
-						<article>
-							<div class="feature-high">
-								<h1>Langues</h1>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-							</div>
-							<div class="feature-down">
-								<div class="more">
-									<a href="#">PLUS</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</article>
-						<article>
-							<div class="feature-high">
-								<h1>Economie gestion</h1>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-								<div class="cover iblock">
-									<img src="../../images/test.jpg" />
-									<h2>Titre</h2>
-									<h3>Auteur</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis.</p>
-								</div>
-							</div>
-							<div class="feature-down">
-								<div class="more">
-									<a href="#">PLUS</a>
+									<a href="maths.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
 						</article>
 						
+						<!-- Catégorie -->
+						<article>
+							<div class="feature-high">
+								<h1>Français</h1>
+								<?php
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE etat = francais'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								{   
+								?>
+								<div class="cover iblock">
+									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
+									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
+									<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
+									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+								</div>
+								<?php 
+								}
+								$reponse->closeCursor(); // Termine le traitement de la requête
+								?>
+							</div>
+							<div class="feature-down">
+								<div class="more">
+									<a href="francais.php">PLUS</a>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</article>
+						
+						<!-- Catégorie -->
+						<article>
+							<div class="feature-high">
+								<h1>Informatique</h1>
+								<?php
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE etat = informatique'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								{   
+								?>
+								<div class="cover iblock">
+									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
+									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+								</div>
+								<?php 
+								}
+								$reponse->closeCursor(); // Termine le traitement de la requête
+								?>
+							</div>
+							<div class="feature-down">
+								<div class="more">
+									<a href="informatique.php">PLUS</a>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</article>
+						
+						<!-- Catégorie -->
+						<article>
+							<div class="feature-high">
+								<h1>Langues</h1>
+								<?php
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE etat = langues'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								{   
+								?>
+								<div class="cover iblock">
+									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
+									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+								</div>
+								<?php 
+								}
+								$reponse->closeCursor(); // Termine le traitement de la requête
+								?>
+							</div>
+							<div class="feature-down">
+								<div class="more">
+									<a href="langues.php">PLUS</a>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</article>
 					</section>
 					<div class="clear"></div>
 				</div>
-				
 			</div>
 		</div>
+		
 		<!-- Pied de page -->
 		<?php include("../footer/footer.php"); ?>
 		

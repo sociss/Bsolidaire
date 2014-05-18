@@ -129,6 +129,7 @@ h1 {
 }
 .right {
 	padding-top: 8px;
+	margin-right: 23px;
     float: right;
     max-width: 150px;
 }
@@ -255,7 +256,7 @@ h1 {
 
 /*--------------------------------- Section --------------------------------------*/
 .main {
-    margin-left: 249px;
+    margin-left: 242px;
     width: auto;
 }
 .feature {
@@ -304,8 +305,10 @@ h1 {
 }
 .cover {
 	background-color: #FFFFFF;
-	margin: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	margin: 5px;
 	padding: 15px;
+	min-height: 250px;
 	width: 150px;
 }
 .feature-down {
@@ -316,17 +319,19 @@ h1 {
 }
 .more {
 	background-color: #FFFFFF;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 	border-radius: 3px;
 	width: 80px;
 	height: 20px;
 	padding: 5px;
-	margin: 40px 19px 15px 0;
+	margin: 40px 7px 15px 0;
 	text-align: center;
 	float: right;
 }
 .more a {
 	color: #999999;
     font-size: 16px;
+	font-weight: 300;
     text-decoration: none;
     white-space: nowrap;
 }

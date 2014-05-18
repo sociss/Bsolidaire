@@ -66,7 +66,7 @@
 		public function  sendQuery()
 		 {		try
 				{
-					$pdo = new PDO('mysql:host=localhost;dbname=transactions', 'root', 'test');
+					$pdo = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'test');
 				}catch(Exception $e)
 				{		
 					    throw new Exception( 'Erreur : '.$e->getMessage().'<br />N° : '.$e->getCode().'<br />');

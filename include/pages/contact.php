@@ -28,11 +28,11 @@
 			<div id="form" style="background-color:white;height:100%;padding-left:10%;padding-top:10%;padding-bottom:10%;">
 				<h1 style="color:red;font-weight:bold;">Formulaire de contact</h1><br>
 					<?php
-						include "../contactform.php";
+						include "../Class/contactform.php";
 					?>
 
 			</div>
 		</section>
 	</div>
 
-</body><script src="../validationform.js"></script> </html>
+</body><script src="../js/validationform.js"></script> </html>

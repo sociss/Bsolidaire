@@ -25,6 +25,15 @@
 			}
 		 }
 		 
+		 //Fonction permettant de vérifier si le dummy a été remplit 
+		 public function notBot($value)
+		  {
+			if(!empty($value))
+			{
+			throw new Exception('Pas malin le bot.');
+			}
+		 }
+		 
 		 public function lenghtvalidation($champ,$value,$lenght)
 		 {
 			if(strlen($value)>$lenght)

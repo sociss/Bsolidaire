@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr"><head>
 <meta http-equiv="content-type" content="text/html; charset=windows-1252">
         <meta charset="utf-8">
@@ -19,20 +19,20 @@
 	<div id="contact">
 		<header role="banner">
 			<div class="conteneur">
-				<h1 class="iblock">Inscription </h1>
+				<h1 class="iblock">Contact </h1>
 
 				<div class="clear"></div>
 			</div>
 		</header>
 		<section>
 			<div id="form" style="background-color:white;height:100%;padding-left:10%;padding-top:10%;padding-bottom:10%;">
-				<h1 style="color:red;font-weight:bold;">Formulaire d'inscription</h1><br>
+				<h1 style="color:red;font-weight:bold;">Log-In</h1>
 					<?php
-						include "../Class/inscriform.php";
+						include "../Class/loginClass.php";
 					?>
 
 			</div>
 		</section>
 	</div>
 
-</body><script src="../js/validationform.js"></html>
+</body><script src="../js/validationform.js"></script> </html>

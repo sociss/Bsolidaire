@@ -30,6 +30,29 @@
 			return $champs;
 		}
 	}
+	//Class champs mdplogin
+	class mdplogin{
+		private $nom;
+		function __construct($nom)
+		{
+			$this->nom=$nom;
+		}
+		public function build()
+		{
+			$champs='<label>'.$this->nom.':</label><input type="password" name="formmdp" size="60" id="Formmdp" class="input" value="" />
+			<span id="erreurmdp" style="display:none;color:red">Veillez rentrer un(e) '.$this->nom.'</span><br />';
+			return $champs;
+		}
+	}
+	
+	//Class Dummy Field pour tromper les bots
+	class DummyField{
+		public function build()
+		{
+			$champs='<input type="text" name="baka" style="display:none" />';
+			return $champs;
+		}
+	}
 	
 	//Class zone texte
 	class textarea{

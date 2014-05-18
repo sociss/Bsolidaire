@@ -24,7 +24,7 @@
     // Affichage du formulaire
     public static function form(){
 		$form = new FormContact("Nom","Email","Sujet","Message");
-		echo $form->build("../contactform.php","verifsaisieContact()");
+		echo $form->build("../Class/contactform.php","verifsaisieContact()");
     }
     }
      

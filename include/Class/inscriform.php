@@ -11,7 +11,9 @@
 		try {
 			if (!isset($_POST['formNom'])){ throw new Exception('Formulaire non poste'); }
 			try {
-				$user = new newUser($_POST['formPseudo'],$_POST['formNom'],$_POST['formPrenom'],$_POST['formEmail'],$_POST['formAdresse'],$_POST['formmdp'],$_POST['formConfmdp']);
+				$user = new newUser(mysql_real_escape_string($_POST['formPseudo']),mysql_real_escape_string($_POST['formNom']),
+									mysql_real_escape_string($_POST['formPrenom']),mysql_real_escape_string($_POST['formEmail']),
+									mysql_real_escape_string($_POST['formAdresse']),mysql_real_escape_string($_POST['formmdp'],$_POST['formConfmdp']));
 				$user->sendQuery();
 			} catch (Exception $e) {
 				echo $e->getMessage(), "\n";
@@ -44,8 +46,8 @@
 			$this->mdp2=$mdp2;
 			$this->adresse=$adresse;
 			//Generation de la cle unique pour cryptage du mot de passe
-			$size = mcrypt_get_iv_size(MCRYPT_CAST_256, MCRYPT_MODE_CFB);
-			$this->salt=mcrypt_create_iv($size, MCRYPT_DEV_RANDOM);
+			$this->salt=strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+			$this->salt='$5$rounds=5000$'.$this->salt.'$';
 			//Creation de l'objet de validation
 			$this->validator = new validator();
 			$this->validate();
@@ -75,7 +77,7 @@
 				{
 					$pdo->beginTransaction();
 					//Cryptage du mot de passe avant envoie dans la BDD
-					$hash=md5($this->salt+$this->mdp1);
+					$hash=crypt($this->salt,$this->mdp1);
 					$pdo->query('INSERT INTO Utilisateur SET Pseudo =\''.$this->pseudo.'\', Nom = \''.$this->nom.'\',Prenom=\''.$this->prenom.'\',Email=\''.$this->email.'\',Mdp=\''.$hash.'\',Salt=\''.$this->salt.'\',Adresse=\''.$this->adresse.'\' ');
 					$pdo->commit();
 					echo 'Vous êtes maintenant inscrit.';

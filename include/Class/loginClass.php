@@ -11,7 +11,7 @@
 		try {
 			if (!isset($_POST['formPseudo'])){ throw new Exception('Formulaire non poste'); }
 			try {
-				$user = new veriflogin($_POST['formPseudo'],$_POST['formmdp'],$_POST['baka']);
+				$user = new veriflogin(mysql_real_escape_string($_POST['formPseudo']),mysql_real_escape_string($_POST['formmdp']),$_POST['baka']);
 				$user->startsession();
 			} catch (Exception $e) {
 				echo $e->getMessage(), "\n";
@@ -65,8 +65,6 @@
 				try
 				{
 					$pdo->beginTransaction();
-					//Cryptage du mot de passe avant envoie dans la BDD
-					$hash=md5($this->salt+$this->mdp);
 					$row=$pdo->query('Select * from Utilisateur where Pseudo=\''.$pseudo.'\' ');
 					if($row==FALSE)
 					{
@@ -74,7 +72,7 @@
 					}
 					else
 					{
-						if(md5($row['Salt']+$this->mdp)!=$row['Mdp'])
+						if(crypt($this->mdp,$row['Salt'])!=$row['Mdp'])
 						{
 							throw new Exception('Identifiants incorrects');
 						}

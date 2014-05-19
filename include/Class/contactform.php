@@ -11,7 +11,7 @@
 		try {
 			if (!isset($_POST['formMessage'])){ throw new Exception('Formulaire non poste'); }
 			try {
-				$mail = new email($_POST['formNom'], $_POST['formEmail'], $_POST['formMessage'], $_POST['formSujet']);
+				$mail = new email(mysql_real_escape_string($_POST['formNom']),mysql_real_escape_string( $_POST['formEmail']), mysql_real_escape_string($_POST['formMessage']), mysql_real_escape_string($_POST['formSujet']));
 				$mail->setReceiver("moi@test.com");
 				$mail->sendMail();
 			} catch (Exception $e) {

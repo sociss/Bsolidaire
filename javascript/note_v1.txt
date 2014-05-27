@@ -1,0 +1,14 @@
+/*---------------------------------------- Source ----------------------------------------*/
+Performance switch vs if else : http://jsperf.com/performance-of-assigning-variables-in-javascript
+
+/*----------------------------------------- Bug ------------------------------------------*/
+// Si valeur est déterminer par un mot top, center medium ....
+// Parametre pour prendre la valeur de depart comme reference pour l'harmonisation des valeurs.
+// Si même effet ne pas relancer init entier ??????
+// % hauteur, detecter si l'element parent à une taille en % + html + body ?
+// Pour height faire un mode qui met en % la hauteur de l'élement parent et remonte jusqu'a body ????
+// Mettre en place des verif valeurs par rapport à la taille et ect ???
+// Rajouter l'aplha au nom de couleur ?
+// Tester le type avant de lancer la convertion => s'assurer du bon format.
+// Extract color : Couleur valeur supérieur ou inférieur mettre à 255 ou 0 ?
+// Tester si le navigateur supporte le hsla et rgba : ligne 704

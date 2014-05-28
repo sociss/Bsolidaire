@@ -17,6 +17,7 @@ $init = new Autoload();
         <title>Bsolidaire</title>
 		<meta name="description" content="Bsolidaire project" />
 		<meta name="author" content="Bsolidaire" />
+		<link rel="stylesheet" href="styles/bibliotheque.css" />
 		<link rel="stylesheet" href="styles/style.css" />
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" type="text/css" rel="stylesheet">
 		<!--[if lte IE 7]>
@@ -35,11 +36,30 @@ $init = new Autoload();
 		<!-- Contenu principal -->
 		<section role="main" itemprop="mainContentOfPage">
 		
-		
-		
+		<?php
+		if(isset($_GET['page'])) {
+			if($_GET['page']=='livres') {
+				require("include/pages/book.php");
+			}
+			else if($_GET['page']=='films') {
+				require("include/pages/movie.php");
+			}
+			else if($_GET['page']=='jeuxVideos') {
+				require("include/pages/gaming.php");
+			}
+			else if($_GET['page']=='jeuxSociete') {
+				require("include/pages/party.php");
+			}
+			else if($_GET['page']=='scolaire') {
+				require("include/pages/school.php");
+			}
+		}
+		?>
 		</section>
+		
 		<!-- Pied de page -->
 		<?php require("include/footer/footer.php"); ?>
-	<script src="javascript/bsolidaire.js"></script>	
+		
+		<script src="javascript/bsolidaire.js"></script>	
 	</body>
 </html>

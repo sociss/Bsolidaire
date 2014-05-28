@@ -1,6 +1,6 @@
 <?php
     $strIndex=' <li id="nav_index">
-                    <a href="../../index.php?page=index" class="menu-link">
+                    <a href="index.php?page=index" class="menu-link">
                         <span class="hover">
                             <span class="icon-container"><span class="icon"></span></span>
                             <span class="title">Bsolidaire</span>
@@ -8,7 +8,7 @@
                     </a>
                 </li>';
     $strLivres='<li id="nav_book">
-                    <a href="include/pages/book.php?page=livres" class="menu-link">
+                    <a href="index.php?page=livres" class="menu-link">
                         <span class="hover">
                             <span class="icon-container"><span class="icon"></span></span>
                             <span class="title">Livres</span>
@@ -16,7 +16,7 @@
                     </a>
                 </li>';
     $strFilms= '<li id="nav_movie">
-                    <a href="../../index.php?page=movie" class="menu-link">
+                    <a href="index.php?page=films" class="menu-link">
                         <span class="hover">
                             <span class="icon-container"><span class="icon"></span></span>
                             <span class="title">Films</span>
@@ -24,7 +24,7 @@
                     </a>
                 </li>';
     $strJeuxVideos='<li id="nav_game">
-                        <a href="../../index.php?page=gaming" class="menu-link">
+                        <a href="index.php?page=jeuxVideos" class="menu-link">
                             <span class="hover">
                                 <span class="icon-container"><span class="icon"></span></span>
                                 <span class="title">Jeux Vidéo</span>
@@ -32,7 +32,7 @@
                         </a>
                     </li>';
     $strJeuxSocietes=  '<li id="nav_party">
-                            <a href="../../index.php?page=party" class="menu-link">
+                            <a href="index.php?page=jeuxSociete" class="menu-link">
                                 <span class="hover">
                                     <span class="icon-container"><span class="icon"></span></span>
                                     <span class="title">Jeux de Société</span>
@@ -40,7 +40,7 @@
                             </a>
                         </li>';
     $strScolaire= '<li id="nav_school">
-                        <a href="../../index.php?page=school" class="menu-link">
+                        <a href="index.php?page=scolaire" class="menu-link">
                             <span class="hover">
                                 <span class="icon-container" ><span class="icon"></span></span>
                                 <span class="title">Scolaire</span>

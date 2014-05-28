@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <title>Bsolidaire - Les jeux de société</title>
-		<meta name="description" content="Bsolidaire project" />
-		<meta name="author" content="Lionel" />
-		<link rel="stylesheet" href="../../styles/style.css" />
-		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" type="text/css" rel="stylesheet">
-		<!--[if lte IE 7]>
-			<link rel="stylesheet" href="styleie.css" type="text/css" media="screen" />
-		<![endif]-->
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	</head>
-	<body>
 		<?php 
 		try
 		{
@@ -26,19 +11,9 @@
 		}
 		?>
 		
-		<!-- Header -->
-		<?php include("../header/header.php"); ?>
-		
-		<!-- Menu principal -->
-		<?php include("../menu/menu.php"); ?>
-		
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
-				
-				<!-- Menu latéral gauche -->
-				<?php include ("../sidebar/sidebar.php"); ?>
-				<div class="clear"></div>
 				
 				<!-- Contenu -->
 				<div class="main">
@@ -160,9 +135,3 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- Pied de page -->
-		<?php include("../footer/footer.php"); ?>
-		
-	</body>
-</html>

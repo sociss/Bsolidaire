@@ -1,6 +1,14 @@
    <?php
    //Class de validation de saisie
     class validator {
+		
+		public function __construct(){}
+		
+		public function __destruct()
+		{
+			unset($this);
+		}
+		
 
 		public function valideEmail($value)
 		{
@@ -13,7 +21,7 @@
 		  {
 			if(empty($value))
 			{
-			throw new Exception('Champ: '.$nom.' vide.');
+			throw new Exception('Champ '.$nom.', vide.');
 			}
 		 }
 		 

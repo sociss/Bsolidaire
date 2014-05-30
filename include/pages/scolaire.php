@@ -2,7 +2,7 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
@@ -22,9 +22,9 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Bandes dessinées</h1>
+								<h1>Mathématiques</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE etat = bd'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = maths'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
@@ -41,7 +41,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="bd.php">PLUS</a>
+									<a href="scolaire/maths.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -50,9 +50,9 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Mangas</h1>
+								<h1>Français</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE etat = mangas'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = francais'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
@@ -69,7 +69,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="manga.php">PLUS</a>
+									<a href="scolaire/francais.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -78,16 +78,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Romans</h1>
+								<h1>Informatique</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE etat = romans'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = informatique'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -97,7 +97,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="romans.php">PLUS</a>
+									<a href="scolaire/informatique.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -106,16 +106,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Poèmes</h1>
+								<h1>Langues</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE etat = poemes'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = langues'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -125,7 +125,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="poemes">PLUS</a>
+									<a href="scolaire/langues.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -135,4 +135,3 @@
 				</div>
 			</div>
 		</div>
-		

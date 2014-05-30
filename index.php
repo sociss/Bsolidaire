@@ -39,19 +39,19 @@ $init = new Autoload();
 		<?php
 		if(isset($_GET['page'])) {
 			if($_GET['page']=='livres') {
-				require("include/pages/book.php");
+				require("include/pages/livres.php");
 			}
 			else if($_GET['page']=='films') {
-				require("include/pages/movie.php");
+				require("include/pages/films.php");
 			}
 			else if($_GET['page']=='jeuxVideos') {
-				require("include/pages/gaming.php");
+				require("include/pages/jeuxvideo.php");
 			}
 			else if($_GET['page']=='jeuxSociete') {
-				require("include/pages/party.php");
+				require("include/pages/jeuxsociete.php");
 			}
 			else if($_GET['page']=='scolaire') {
-				require("include/pages/school.php");
+				require("include/pages/scolaire.php");
 			}
 		}
 		?>

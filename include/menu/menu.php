@@ -58,12 +58,12 @@
 
 
     $arrayIcone= array(
-         'Livres'=> "background-image: url(images/book.png);",
-         'Films'=> "background-image: url(images/movie.png);",
-         'Jeux de vidéo'=> "background-image: url(images/gamming.png);",
-         'Jeux de société'=> "background-image: url(images/party.png);",
-         'Scolaire'=> "background-image: url(images/book.png);",
-         'Bsolidaire'=> "background-image: url(images/book.png);",
+         'Livres'=> "background-image: url(images/livres.png);",
+         'Films'=> "background-image: url(images/films.png);",
+         'Jeux de vidéo'=> "background-image: url(images/jeuxvideo.png);",
+         'Jeux de société'=> "background-image: url(images/jeuxsociete.png);",
+         'Scolaire'=> "background-image: url(images/livres.png);",
+         'Bsolidaire'=> "background-image: url(images/livres.png);",
     );
     $arrayPage=  array_keys($arrayMenu);
     $menu = new Menu($arrayMenu,$arrayIcone,$arrayPage);

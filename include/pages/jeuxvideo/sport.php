@@ -2,10 +2,11 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <title>Bsolidaire - Les films</title>
+        <title>Bsolidaire - Les jeux de sport</title>
 		<meta name="description" content="Bsolidaire project" />
 		<meta name="author" content="Lionel" />
-		<link rel="stylesheet" href="../../styles/style.css" />
+		<link rel="stylesheet" href="../../../styles/bibliotheque.css" />
+		<link rel="stylesheet" href="../../../styles/style.css" />
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" type="text/css" rel="stylesheet">
 		<!--[if lte IE 7]>
 			<link rel="stylesheet" href="styleie.css" type="text/css" media="screen" />
@@ -17,28 +18,24 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
 		    // En cas d'erreur, on affiche un message et on arrête tout
 			die('Erreur : '.$e->getMessage());
 		}
-		?>
+		?> 
 		
 		<!-- Header -->
-		<?php include("../header/header.php"); ?>
+		<?php include("../../header/header.php"); ?>
 		
 		<!-- Menu principal -->
-		<?php include("../menu/menu.php"); ?>
+		<?php include ("../../menu/menu.php"); ?>
 		
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
-				
-				<!-- Menu latéral gauche -->
-				<?php include ("../sidebar/sidebar.php"); ?>
-				<div class="clear"></div>
 				
 				<!-- Contenu -->
 				<div class="main">
@@ -47,16 +44,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Animation</h1>
+								<h1>Sport</h1>
 								<?php
-								$reponse = $bdd->query('SELECT * FROM films WHERE etat = animation'); 
+								$reponse = $bdd->query('SELECT * FROM jeux_video WHERE type = sport'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['developpeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -73,7 +70,7 @@
 		</div>
 		
 		<!-- Pied de page -->
-		<?php include("../footer/footer.php"); ?>
+		<?php include("../../footer/footer.php"); ?>
 		
 	</body>
 </html>

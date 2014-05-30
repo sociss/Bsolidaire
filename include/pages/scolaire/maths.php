@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <title>Bsolidaire - Les jeux de société</title>
+        <title>Bsolidaire - Les manuels de mathematiques</title>
 		<meta name="description" content="Bsolidaire project" />
 		<meta name="author" content="Lionel" />
 		<link rel="stylesheet" href="../../styles/style.css" />
@@ -17,7 +17,7 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
@@ -27,18 +27,14 @@
 		?>
 		
 		<!-- Header -->
-		<?php include("../header/header.php"); ?>
+		<?php include("../../header/header.php"); ?>
 		
 		<!-- Menu principal -->
-		<?php include("../menu/menu.php"); ?>
+		<?php include("../../menu/menu.php"); ?>
 		
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
-				
-				<!-- Menu latéral gauche -->
-				<?php include ("../sidebar/sidebar.php"); ?>
-				<div class="clear"></div>
 				
 				<!-- Contenu -->
 				<div class="main">
@@ -47,16 +43,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Jeux de rôle</h1>
+								<h1>Mathématiques</h1>
 								<?php
-								$reponse = $bdd->query('SELECT * FROM jeux_societe WHERE etat = jdr'); 
+								$reponse = $bdd->query('SELECT * FROM scolaire WHERE type = maths'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -73,7 +69,7 @@
 		</div>
 		
 		<!-- Pied de page -->
-		<?php include("../footer/footer.php"); ?>
+		<?php include("../../footer/footer.php"); ?>
 		
 	</body>
 </html>

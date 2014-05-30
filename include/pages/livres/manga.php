@@ -2,10 +2,11 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <title>Bsolidaire - Les livres</title>
+        <title>Bsolidaire - Les mangas</title>
 		<meta name="description" content="Bsolidaire project" />
 		<meta name="author" content="Lionel" />
-		<link rel="stylesheet" href="../../styles/style.css" />
+		<link rel="stylesheet" href="../../../styles/bibliotheque.css" />
+		<link rel="stylesheet" href="../../../styles/style.css" />
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" type="text/css" rel="stylesheet">
 		<!--[if lte IE 7]>
 			<link rel="stylesheet" href="styleie.css" type="text/css" media="screen" />
@@ -17,7 +18,7 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
@@ -27,18 +28,14 @@
 		?>
 		
 		<!-- Header -->
-		<?php include("../header/header.php"); ?>
+		<?php include("../../header/header.php"); ?>
 		
 		<!-- Menu principal -->
-		<?php include("../menu/menu.php"); ?>
+		<?php include("../../menu/menu.php"); ?>
 		
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
-				
-				<!-- Menu latéral gauche -->
-				<?php include ("../sidebar/sidebar.php"); ?>
-				<div class="clear"></div>
 				
 				<!-- Contenu -->
 				<div class="main">
@@ -49,7 +46,7 @@
 							<div class="feature-high">
 								<h1>Mangas</h1>
 								<?php
-								$reponse = $bdd->query('SELECT * FROM livres WHERE etat = mangas'); 
+								$reponse = $bdd->query('SELECT * FROM livres WHERE type = mangas'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
@@ -73,7 +70,7 @@
 		</div>
 		
 		<!-- Pied de page -->
-		<?php include("../footer/footer.php"); ?>
+		<?php include("../../footer/footer.php"); ?>
 		
 	</body>
 </html>

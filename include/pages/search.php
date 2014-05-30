@@ -5,6 +5,7 @@
         <title>Bsolidaire - Résultats de recherche</title>
 		<meta name="description" content="Bsolidaire project" />
 		<meta name="author" content="Lionel" />
+		<link rel="stylesheet" href="../../styles/bibliotheque.css" />
 		<link rel="stylesheet" href="../../styles/style.css" />
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" type="text/css" rel="stylesheet">
 		<!--[if lte IE 7]>
@@ -17,7 +18,7 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
@@ -35,10 +36,6 @@
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
-				
-				<!-- Menu latéral gauche -->
-				<?php include ("../sidebar/sidebar.php"); ?>
-				<div class="clear"></div>
 				
 				<!-- Contenu -->
 				<div class="main">

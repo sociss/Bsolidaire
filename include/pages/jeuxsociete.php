@@ -2,14 +2,14 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
 		    // En cas d'erreur, on affiche un message et on arrête tout
 			die('Erreur : '.$e->getMessage());
 		}
-		?> 
+		?>
 		
 		<!-- Contenu principal -->
 		<div id="content">
@@ -22,16 +22,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Arcade</h1>
+								<h1>Jeux de rôle</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE etat = arcade'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = jdr'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['developpeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -41,7 +41,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="arcade.php">PLUS</a>
+									<a href="jeuxsociete/jdr.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -50,16 +50,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>FPS</h1>
+								<h1>En famille</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE etat = fps'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = famille'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['developpeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -69,7 +69,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="fps.php">PLUS</a>
+									<a href="jeuxsociete/famille.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -78,16 +78,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Stratégie</h1>
+								<h1>Jeux de cartes</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE etat = strategie'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = jdc'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['developpeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -97,7 +97,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="strategie.php">PLUS</a>
+									<a href="jeuxsociete/cartes.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -106,16 +106,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Sport</h1>
+								<h1>Quizz</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE etat = sport'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = quizz'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['developpeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -125,7 +125,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="sport.php">PLUS</a>
+									<a href="jeuxsociete/quizz.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>

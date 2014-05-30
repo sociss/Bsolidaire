@@ -2,7 +2,7 @@
 		try
 		{
 		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=test_bsolidaire', 'root', 'root');
+		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
@@ -22,16 +22,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Jeux de rôle</h1>
+								<h1>Animation</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE etat = jdr'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM films WHERE type = animation'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -41,7 +41,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="jdr.php">PLUS</a>
+									<a href="films/animation.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -50,16 +50,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>En famille</h1>
+								<h1>Comédie</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE etat = famille'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM films WHERE type = comedie'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -69,7 +69,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="famille.php">PLUS</a>
+									<a href="films/comedie.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -78,16 +78,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Jeux de cartes</h1>
+								<h1>Horreur</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE etat = jdc'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM films WHERE type = horreur'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -97,7 +97,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="cartes.php">PLUS</a>
+									<a href="films/horreur.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -106,16 +106,16 @@
 						<!-- Catégorie -->
 						<article>
 							<div class="feature-high">
-								<h1>Quizz</h1>
+								<h1>Science-fiction</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE etat = quizz'); 
+								$reponse = $bdd->query('SELECT TOP 5* FROM films WHERE type = sf'); 
 								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
+									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
 									<p><?php echo html_entity_decode($donnees['description']); ?></p>
 								</div>
 								<?php 
@@ -125,7 +125,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="quizz.php">PLUS</a>
+									<a href="films/sf.php">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>

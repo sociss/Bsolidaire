@@ -7,8 +7,8 @@
             <div class="part1 iblock cf">
             <!-- Titre+Recherche -->
                 <h1>L'abc-daire de la solidarité</h1>
-                <form id="search" action="search/search.php" method="get" role="search">
-                        <input class="search_data iblock" name="query" type="text" placeholder="Rechercher" /><input type="submit" id="submit_search" name="submit_search" class="loupe iblock" value="" />
+                <form id="search" action="include/pages/search.php" method="get" role="search">
+                    <input class="search_data iblock" name="query" type="text" placeholder="Rechercher" /><input type="submit" id="submit_search" name="submit_search" class="loupe iblock" value="" />
                 </form>
             </div><div class="part2 iblock cf">
             <!-- Bouton connect -->

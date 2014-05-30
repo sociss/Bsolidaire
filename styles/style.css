@@ -96,11 +96,10 @@ header {
     width: 100%;
     height: 34px;
     background: #FFFFFF;
-    border-radius: 0.2em;
 }
 #search>.loupe {
     background: url(../images/loupe.png) no-repeat center center;
-    width: 10%;
+    width: 6%;
     height: 32px;
     cursor: pointer;
     outline: 0;
@@ -112,13 +111,10 @@ header {
     font-size: 0.9em;
     font-weight: 300;
     height: 32px;
-    width: 87%;
+    width: 92%;
     color: #666666;
     margin: 0;
     padding-left: 1.7%;
-    border-top-left-radius: 0.2em;
-    border-bottom-left-radius: 0.2em;
-    border-right: solid 1px #EFECCA;
 }
 .right{
     width: 76%;
@@ -255,42 +251,42 @@ header {
     background-color: #1AA1E1;
 }
 #nav_index .icon{
-    background-image: url(../images/book.png);
+    background-image: url(../images/livres.png);
 }
 /* Nav_book style */
 #nav_book .icon-container{
     background-color: #1AA1E1;
 }
 #nav_book .icon{
-    background-image: url(../images/book.png);
+    background-image: url(../images/livres.png);
 }
 /* Nav_movie style */
 #nav_movie .icon-container{
     background-color: #CE5043;
 }
 #nav_movie .icon{
-    background-image: url(../images/movie.png);
+    background-image: url(../images/films.png);
 }
 /* Nav_game style */
 #nav_game .icon-container{
     background-color: #B3C833;
 }
 #nav_game .icon{
-    background-image: url(../images/gaming.png);
+    background-image: url(../images/jeuxvideo.png);
 }
 /* Nav_party style */
 #nav_party .icon-container{
     background-color: #FB8521;
 }
 #nav_party .icon{
-    background-image: url(../images/party.png);
+    background-image: url(../images/jeuxsociete.png);
 }
 /* Nav_school style */
 #nav_school .icon-container{
     background-color: #658092;
 }
 #nav_school .icon{
-    background-image: url(../images/book.png);
+    background-image: url(../images/livres.png);
 }
 #page_actuel{
     cursor:default;

@@ -45,13 +45,8 @@ class Login{
 		
 		//Verification du mdp et du pseudo dans la BDD (en attente de modification par utlisation de l'objet connection)
 		public function  databasecheck()
-		 {		try
-				{
-					$pdo = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'test');
-				}catch(Exception $e)
-				{		
-					    erreur($e->getMessage());
-				}
+		 {		
+				Bdd::initilisation();
 				try
 				{
 					$pdo->beginTransaction();
@@ -77,8 +72,8 @@ class Login{
 				{		
 					 erreur($e->getMessage());
 				}
-						
-		 }
+				Bdd::fermerBdd();		
+		 }	
 		 
 		 public function startsession()
 		 {

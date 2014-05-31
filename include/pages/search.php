@@ -14,18 +14,8 @@
 		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	</head>
 	<body>
-		<?php 
-		try
-		{
-		    // On se connecte à MySQL
-		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
-		}
-		catch(Exception $e)
-		{
-		    // En cas d'erreur, on affiche un message et on arrête tout
-			die('Erreur : '.$e->getMessage());
-		}
-		?>
+		<!-- Appel du moteur de recherche -->
+		<?php include("../classes/Recherche.classe.php"); ?>
 		
 		<!-- Header -->
 		<?php include("../header/header.php"); ?>
@@ -45,36 +35,12 @@
 						<article>
 							<div class="feature-high">
 								<h1>Résultats de votre recherche :</h1>
-								<?php
-				    			$query = $_GET['query']; 
-								$min_length = 3;  // la recherche est limitée a 3 caractères minimums, a définir
-				    			if(strlen($query) >= $min_length) { 
-				        			$query = htmlspecialchars($query); 
-				        			$query = mysql_real_escape_string($query); // pour eviter les injections SQL, a convertir en PDO (voir la méthode quote())
-									$raw_results = $bdd->query("SELECT * FROM livres WHERE titre LIKE '%$query%' "); 
-									$nb_results = $raw_results->rowCount();
-									if($nb_results != 0) {
-										while ($results = $raw_results->fetch()) // On parcourt la table et on affiche les résultats
-										{   
-										?>
-										<div class="cover iblock">
-											<img src="<?php echo html_entity_decode($results['image']); ?>" />
-											<h2><?php echo html_entity_decode($results['titre']); ?></h2>
-											<h3><?php echo html_entity_decode($results['auteur']); ?></h3>
-											<p><?php echo html_entity_decode($results['description']); ?></p>
-										</div>
-										<?php
-			         					}
-									}
-			        				else { 
-			            				echo "Aucun résultats, veuillez réessayer";
-									}
-			    				}
-			    				else { 
-			        				echo "La recherche nécessite au minimum ".$min_length." caractères";
-			    				}
-								$raw_results->closeCursor(); // Termine le traitement de la requête
-								?>
+								<div class="cover iblock">
+									<img src="<?php echo html_entity_decode($results['image']); ?>" />
+									<h2><?php echo html_entity_decode($results['titre']); ?></h2>
+									<h3><?php echo html_entity_decode($results['auteur']); ?></h3>
+									<p><?php echo html_entity_decode($results['description']); ?></p>
+								</div>		
 							</div>
 							<div class="clear"></div>
 						</article>

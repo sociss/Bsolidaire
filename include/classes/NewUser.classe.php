@@ -11,6 +11,7 @@
 *===================================================================================================*
 */
 include "Valid.classe.php";
+include "base/Bdd.classe.php";
 class NewUser{
 
     private $strPseudo;
@@ -79,28 +80,23 @@ class NewUser{
 	
 //Envoi dans la base de donnée (en attente de modification par utlisation de l'objet connection)
 		public function  sendQuery()
-		 {		try
-				{
-					$pdo = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'test');
-				}catch(Exception $e)
-				{		
-					    erreur($e->getMessage());
-				}
-				try
-				{
-					$pdo->beginTransaction();
+		 {		
 					//Cryptage du mot de passe avant envoie dans la BDD
 					$hash=crypt($this->strSalt,$this->strMdp);
-					$pdo->query('INSERT INTO Utilisateur SET Pseudo =\''.$this->strPseudo.'\', Nom = \''.$this->strName.'\',Prenom=\''.$this->strPrenom.'\',Email=\''.$this->strEmail.'\',Mdp=\''.$hash.'\',Salt=\''.$this->strSalt.'\',Adresse=\''.$this->strAdresse.'\' ');
-					$pdo->commit();
-					echo 'Vous êtes maintenant inscrit.';
-				}
-				catch(Exception $e)
-				{		
-						$pdo->rollback();
-						erreur( $e->getMessage());
-				}
-						
+					
+					//Creation du tableau des variables à envoyer
+					$array=array(
+						"Pseudo"=>$this->strPseudo
+						"Nom"=>$this->strName
+						"Prenom"=>$this->strPrenom
+						"Email"=>$this->strEmail
+						"Salt"=>$this->strSalt
+						"Mdp"=>$hash
+						"Adresse"=>$this->strAdresse
+					);
+					Bdd::initilisation();
+					Bdd::insert("Utilisateur",$array);
+					Bdd::fermerBdd();
 		 }
 		public function sendinfo()
 		{

@@ -17,12 +17,10 @@
 		<?php 
 		try
 		{
-		    // On se connecte à MySQL
 		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
-		    // En cas d'erreur, on affiche un message et on arrête tout
 			die('Erreur : '.$e->getMessage());
 		}
 		?>
@@ -46,8 +44,8 @@
 							<div class="feature-high">
 								<h1>Bandes dessinées</h1>
 								<?php
-								$reponse = $bdd->query('SELECT * FROM livres WHERE type = bd'); 
-								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'bd'"); 
+								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">

@@ -36,10 +36,10 @@
 							<div class="feature-high">
 								<h1>Résultats de votre recherche :</h1>
 								<div class="cover iblock">
-									<img src="<?php echo html_entity_decode($results['image']); ?>" />
-									<h2><?php echo html_entity_decode($results['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($results['auteur']); ?></h3>
-									<p><?php echo html_entity_decode($results['description']); ?></p>
+									<img src="<?php echo html_entity_decode($image); ?>" />
+									<h2><?php echo html_entity_decode($titre); ?></h2>
+									<h3><?php echo html_entity_decode($auteur); ?></h3>
+									<p><?php echo html_entity_decode($description); ?></p>
 								</div>		
 							</div>
 							<div class="clear"></div>

@@ -13,47 +13,34 @@
 include "base/Bdd.classe.php";
 
 class Recherche {
-    private $strQuery;
-    private $strImage;
-    private $strTitre;
-    private $strAuteur;
-    private $strDescription;
 
 
     /**
-      * __construct
-      * Constructeur de la class Recherche
-    */
+     * __construct
+     * Constructeur de la class Recherche
+     */
     public function __construct() {
-        $this->strQuery=$strQuery;
-        $this->strImage=$strImage;
-        $this->strTitre=$strTitre;
-        $this->strAuteur=$strAuteur;
-        $this->strDescription=$strDescription;
     }
 
 
     /**
-      * receptionQuery
-      * retourne les résultats de la recherche
-    */
+     * receptionQuery
+     * retourne les résultats de la recherche
+     */
     public function receptionQuery() {
         Bdd::initilisation();
         try
         {
             $min_length = 3;  // la recherche est limitée a 3 caractères minimums, a définir
-            if(strlen($strQuery) >= $min_length) { 
-                $raw_results = $bdd->query("SELECT * FROM livres, films, jeuxvideo, jeuxsociete, scolaire WHERE titre LIKE '%$strQuery%' "); 
+            if(strlen($query) >= $min_length) { 
+                $raw_results = $bdd->query("SELECT * FROM livres, films, jeuxvideo, jeuxsociete, scolaire WHERE titre LIKE '%$query%' "); 
                 $nb_results = $raw_results->rowCount();
                 if($nb_results != 0) {
-                    while ($results = $raw_results->fetch()) {  
-                        //Récupération des données rangées dans un tableau
-                        $array=array(
-                            $this->strImage=>"Image"
-                            $this->strTitre=>"Titre"
-                            $this->strAuteur=>"Auteur"
-                            $this->strDescription=>"Description"
-                        );
+                    while ($results = $raw_results->fetch()) {
+                    	$image = $results['image'];
+                    	$titre = $results['titre'];
+                   	 	$auteur = $results['auteur'];
+                        $description = $results['description'];
                     }
                 }
                 else { 
@@ -73,10 +60,10 @@ class Recherche {
 
 
     /**
-      * erreur
-      * Gestion des erreurs soulevés dans une méthode de la class bdd (hors erreur PDO)
-      * @param string $strMess message à afficher
-    */
+     * erreur
+     * Gestion des erreurs soulevés dans une méthode de la class bdd (hors erreur PDO)
+     * @param string $strMess message à afficher
+     */
     public function erreur($strMess){
         var_dump($strMess);
     die;
@@ -84,9 +71,9 @@ class Recherche {
      
      
     /**
-      * __destruct
-      * Destructeur de la class Recherche
-    */
+     * __destruct
+     * Destructeur de la class Recherche
+     */
     public function __destruct() {
         unset($this);   
     }   

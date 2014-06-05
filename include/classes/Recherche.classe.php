@@ -28,7 +28,7 @@ class Recherche {
      * retourne les résultats de la recherche
      */
     public function receptionQuery() {
-        Bdd::initialisation();
+        Bdd::initilisation();
         try
         {
             $min_length = 3;  // la recherche est limitée a 3 caractères minimums, a définir

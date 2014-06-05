@@ -1,10 +1,12 @@
 		<?php 
 		try
 		{
+		    // On se connecte à MySQL
 		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
+		    // En cas d'erreur, on affiche un message et on arrête tout
 			die('Erreur : '.$e->getMessage());
 		}
 		?>
@@ -22,8 +24,8 @@
 							<div class="feature-high">
 								<h1>Jeux de rôle</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'jdr' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = jdr'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
@@ -50,8 +52,8 @@
 							<div class="feature-high">
 								<h1>En famille</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'famille' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = famille'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
@@ -78,8 +80,8 @@
 							<div class="feature-high">
 								<h1>Jeux de cartes</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'jdc' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = jdc'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
@@ -106,8 +108,8 @@
 							<div class="feature-high">
 								<h1>Quizz</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'quizz' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_societe WHERE type = quizz'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">

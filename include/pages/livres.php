@@ -1,10 +1,12 @@
 <?php 
 try
 {
+    // On se connecte à MySQL
     $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 }
 catch(Exception $e)
 {
+    // En cas d'erreur, on affiche un message et on arrête tout
 	die('Erreur : '.$e->getMessage());
 }
 ?>
@@ -22,8 +24,8 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Bandes dessinées</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'bd' LIMIT 5"); 
-						while ($donnees = $reponse->fetch())
+						$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE type = bd'); 
+						while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 						{   
 						?>
 						<div class="cover iblock">
@@ -50,8 +52,8 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Mangas</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'mangas' LIMIT 5"); 
-						while ($donnees = $reponse->fetch())
+						$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE type = mangas'); 
+						while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 						{   
 						?>
 						<div class="cover iblock">
@@ -78,8 +80,8 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Romans</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'romans' LIMIT 5"); 
-						while ($donnees = $reponse->fetch())
+						$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE type = romans'); 
+						while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 						{   
 						?>
 						<div class="cover iblock">
@@ -106,8 +108,8 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Poèmes</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'poemes' LIMIT 5"); 
-						while ($donnees = $reponse->fetch())
+						$reponse = $bdd->query('SELECT TOP 5* FROM livres WHERE type = poemes'); 
+						while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 						{   
 						?>
 						<div class="cover iblock">

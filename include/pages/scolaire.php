@@ -1,10 +1,12 @@
 		<?php 
 		try
 		{
+		    // On se connecte à MySQL
 		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
+		    // En cas d'erreur, on affiche un message et on arrête tout
 			die('Erreur : '.$e->getMessage());
 		}
 		?>
@@ -22,8 +24,8 @@
 							<div class="feature-high">
 								<h1>Mathématiques</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM scolaire WHERE type = 'maths' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = maths'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
@@ -50,8 +52,8 @@
 							<div class="feature-high">
 								<h1>Français</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM scolaire WHERE type = 'francais' LIMIT 5"); 
-								while ($donnees = $reponse->fetch())
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = francais'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
@@ -78,8 +80,8 @@
 							<div class="feature-high">
 								<h1>Informatique</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM scolaire WHERE type = 'informatique' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = informatique'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">
@@ -106,8 +108,8 @@
 							<div class="feature-high">
 								<h1>Langues</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM scolaire WHERE type = 'langues' LIMIT 5"); 
-								while ($donnees = $reponse->fetch()) 
+								$reponse = $bdd->query('SELECT TOP 5* FROM scolaire WHERE type = langues'); 
+								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
 								{   
 								?>
 								<div class="cover iblock">

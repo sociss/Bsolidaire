@@ -18,11 +18,12 @@ class Bdd{
     static $objBddInstance;
     public $intLastInsertId;
     public $objBdd;
-    public $strBase;
+    public $strBasetype;
     public $strMdp;
     public $strUser;
-    public $strBase;
+    public $strDbName;
     public $strBddType;
+	public $strHost;
 
     /**
      * __construct 
@@ -32,15 +33,15 @@ class Bdd{
     private function __construct(){
         // Paramétres de connexion contenu dans le fichier connect_bd.php dans le dossier include/parametres
         require $_SERVER['DOCUMENT_ROOT'].'/include/parametres/connect_bd.php';
-        $this->strbase     = $config['basetype'];
+        $this->strBasetype     = $config['basetype'];
         $this->strHost     = $config['host'];
         $this->strUser     = $config['user'];
-        $this->strPassword = $config['mdp'];
+        $this->strMdp = $config['mdp'];
         $this->strDbName   = $config['base'];
         $this->intLastInsertId = 0;
          try {			
              /* Information classe PDO : http://www.php.net/manual/fr/class.pdo.php */
-             $this->objBdd = new PDO($this->strBaseType.':host='.$this->strHost.';dbname='.$this->strDbName, $this->strUser, $this->strPassword);
+             $this->objBdd = new PDO($this->strBaseType.':host='.$this->strHost.';dbname='.$this->strDbName, $this->strUser, $this->strMdp);
             /* Rapport d'erreurs : Emet une exception */
              $this->objBdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);					
         } catch (PDOException $e) {
@@ -111,7 +112,7 @@ class Bdd{
      *              $arrayMess[1] : Message si $array est vide
      * @return bool 
     */
-    public function array_ok($array,$arrayMess=['Un tableau est attendu en paramétre !','Le tableau est vide']){
+    public function array_ok($array,$arrayMess=array(1=>'Un tableau est attendu en paramétre !','Le tableau est vide')){
         if(is_array($array)){
             if(!empty($array)){
                 return true;

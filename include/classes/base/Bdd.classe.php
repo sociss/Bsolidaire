@@ -185,9 +185,10 @@ class Bdd{
      * @param 
     */
     public function select(){
-   
+
     }
-    
+	
+
     /**
      * erreur
      * Gestion des erreurs soulevés dans une méthode de la class bdd (hors erreur PDO)

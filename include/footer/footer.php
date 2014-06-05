@@ -17,7 +17,7 @@
 						<li><a href="#">Qui sommes-nous?</a></li>
 						<li><a href="#">Confidentialité</a></li>
 						<li><a href="#">Mentions légales</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="index.php?page=contact">Contact</a></li>
 					</ul>
 				</li><li class="colonne iblock">
 					<ul>

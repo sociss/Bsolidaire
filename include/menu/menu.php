@@ -77,10 +77,10 @@
             <nav id="nav_page" itemprop="breadcrumb">
                 <div id="nav_cache">    
                     <ul>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Bibliothèque</a></li>
-                        <li><a href="#">Mon compte</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="index.php?page=livres">Bibliothèque</a></li>
+                        <li><a href="index.php?page=compte">Mon compte</a></li>
+                        <li><a href="index.php?page=contact">Contact</a></li>
                     </ul>
                 </div>
             </nav>

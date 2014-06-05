@@ -1,0 +1,139 @@
+/*--------------------------------- Reset -------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,image
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration:none;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+html{
+	height: 100%;
+}
+body{
+	font-family: 'Carrois Gothic', sans-serif;
+	color: #4a4a4a;
+	height: 100%;
+	background:#F1F1F1;
+	
+}
+
+/*--------------------------------- Menu choix utilisateur -----------------------------------*/
+#form{
+	clear:both;
+	margin:0 auto;
+	width:80%;
+}
+
+#form h1{
+	color:rgb(228, 90, 78);
+	font-weight:bold;
+	
+}
+#form form {
+	margin-left:10%;
+}
+#form input,select{
+	font-size: 18px;
+	color: rgb(105, 105, 105);
+	border: 2px solid rgb(153, 153, 153);
+	padding: 6px 8px;
+	background-color: rgb(255, 255, 255);
+	box-sizing:content-box;
+	-ms-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box; 
+	
+}
+
+#form input:required {
+   border: 2px dotted rgb(251, 133, 33);
+}
+
+#form label{
+	clear: both;
+	display: block;	
+}
+#form input.send
+{
+	margin-top:10%;
+	background-color: rgb(206, 80, 67);
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	
+	border: medium none;
+	position: relative;
+	cursor: pointer;
+	font-size: 28px;
+}
+#form input.send:hover
+{
+	background-color:rgb(228, 90, 78);
+}
+
+}
+
+
+
+/*---------------------------------------Description--------------------------------------*/
+#produit{
+	background:white;
+}
+
+#detail{
+	margin-top:10%;
+	max-width:80%;
+	background:white;
+	padding-bottom:2%;
+}
+
+#detail p{
+	margin-left:5%;
+}
+#cover-container
+{
+	max-width:40%;
+}
+
+#titre{
+	display:block;
+
+	max-width:40%;
+}
+
+#emprunt{
+	display:block;
+	float:right;
+}

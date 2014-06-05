@@ -78,11 +78,11 @@ header {
     padding: 0.5em 0;
 }
 .left {
-    width: 24%;
+    width: 10;
 }
 .left >.logo {
     display: block;
-    width: 25%;
+    width: 10%;
     min-width:58px;
 }
 .part1 {
@@ -93,7 +93,7 @@ header {
     overflow:hidden;
 }
 #search {
-    width: 100%;
+    width: 80%;
     height: 34px;
     background: #FFFFFF;
 }
@@ -134,8 +134,21 @@ header {
 }
 .part2>.connect:after{
     clear:both;
+
 }
 
+.part2>.signin {
+    text-align: center;
+	padding-top:0;
+    padding-bottom: 1em ;
+    width: 52%;
+    font-weight: 300;
+    color: #fff;
+    background-color: #F7931E;
+}
+.part2>.signin:after{
+    clear:both;
+}
 /*------------------------------ Menu principal -------------------------------------*/
 #menu {
     position:relative;

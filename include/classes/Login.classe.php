@@ -80,6 +80,11 @@ class Login{
 			session_start();
 			$S_SESSION['user']=$this->strPseudo;
 		 }
+		 
+		  public static function endsession()
+		 {
+			session_write_close();
+		 }
 	
 /**
 * erreur

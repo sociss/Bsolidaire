@@ -12,7 +12,18 @@
                 </form>
             </div><div class="part2 iblock cf">
             <!-- Bouton connect -->
-                <a href="#" class="connect">Connexion</a>
+				<?php
+				if(isset($_session['user']))
+				{
+					echo '<a href="index.php?page=deco" class="deco">Deconnexion</a>';
+				}
+                else
+				{
+					echo '<a href="index.php?page=login" class="connect">Connexion</a>';
+					echo '<a href="index.php?page=inscription" class="signin">Inscription</a>';
+				}
+				
+				?>
             </div>
         </div>
     </div>

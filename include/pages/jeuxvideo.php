@@ -1,12 +1,10 @@
 		<?php 
 		try
 		{
-		    // On se connecte à MySQL
 		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
 		}
 		catch(Exception $e)
 		{
-		    // En cas d'erreur, on affiche un message et on arrête tout
 			die('Erreur : '.$e->getMessage());
 		}
 		?> 
@@ -24,8 +22,8 @@
 							<div class="feature-high">
 								<h1>Arcade</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE type = arcade'); 
-								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								$reponse = $bdd->query("SELECT * FROM jeux_video WHERE type = 'arcade' LIMIT 5"); 
+								while ($donnees = $reponse->fetch())
 								{   
 								?>
 								<div class="cover iblock">
@@ -52,8 +50,8 @@
 							<div class="feature-high">
 								<h1>FPS</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE type = fps'); 
-								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								$reponse = $bdd->query("SELECT * FROM jeux_video WHERE type = 'fps' LIMIT 5"); 
+								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">
@@ -80,8 +78,8 @@
 							<div class="feature-high">
 								<h1>Stratégie</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE type = strategie'); 
-								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								$reponse = $bdd->query("SELECT * FROM jeux_video WHERE type = 'strategie' LIMIT 5"); 
+								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">
@@ -108,8 +106,8 @@
 							<div class="feature-high">
 								<h1>Sport</h1>
 								<?php
-								$reponse = $bdd->query('SELECT TOP 5* FROM jeux_video WHERE type = sport'); 
-								while ($donnees = $reponse->fetch()) // On parcourt la table et on affiche tous les résultats
+								$reponse = $bdd->query("SELECT * FROM jeux_video WHERE type = 'sport' LIMIT 5"); 
+								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">

@@ -86,16 +86,18 @@ class NewUser{
 					//Cryptage du mot de passe avant envoie dans la BDD
 					$hash=crypt($this->strSalt,$this->strMdp);
 					$bdd=Bdd::initialisation();
-					$id=$bdd->objBdd->query("Insert Into Utilisateur (nom,prenom,email,Salt,Mdp,ville,adresse) VALUES ('$this->strName','$this->strPrenom','$this->strEmail','$this->strSalt','$hash','$this->strVille','$this->strAdresse');
+					$bdd->objBdd->query("Insert Into Utilisateur (nom,prenom,email,Salt,Mdp,ville,adresse) VALUES ('$this->strName','$this->strPrenom','$this->strEmail','$this->strSalt','$hash','$this->strVille','$this->strAdresse');
 					SET @last_id = LAST_INSERT_ID();
-					UPDATE Utilisateur set Pseudo=concat('$this->strPseudo',@last_id) where id='@last_id' ;
-					SELECT @last_id;");
-					$this->strPseudo=$this->strPseudo.$id;
+					UPDATE Utilisateur set Pseudo=concat('$this->strPseudo',@last_id) where id=@last_id ;
+					");
+					$id=$bdd->objBdd->query("SELECT LAST_INSERT_ID() as ID");
+					$donnees = $id->fetch();
+					$this->strPseudo=$this->strPseudo.$donnees['ID'];
 					Bdd::fermerBdd();
 		 }
 		public function sendinfo()
 		{
-			$message="Voici vos identifiants Bsolidaire :<br/>Pseudo :".$this->strPseudo."<br />Mot de passe:".$this->strMdp."<br/>";
+			$message="Voici vos identifiants Bsolidaire :\n Pseudo :".$this->strPseudo."\n Mot de passe:".$this->strMdp."\n";
 			$sendmail = mail($this->strEmail,"Inscription Bsolidaire", $message);
 			if (!$sendmail) {
 				erreur('Mail non envoye');		

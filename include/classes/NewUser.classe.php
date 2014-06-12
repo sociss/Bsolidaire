@@ -20,6 +20,7 @@ class NewUser{
 	private $strEmail;
 	private $strMdp;
 	private $strConfMdp;
+	private $strVille;
 	private $strAdresse;
 	private $strSalt;
 	private $Validation;
@@ -29,16 +30,17 @@ class NewUser{
 	* __construct
 	* Constructeur de la class NewUser
 	*/
-	public function __construct($pseudo,$nom,$prenom,$email,$adresse,$mdp1,$mdp2)
+	public function __construct($pseudo,$nom,$prenom,$email,$ville,$adresse,$mdp1,$mdp2)
 		{	
 			//Definitions des variables privés
-			$this->strPseudo=$pseudo;
+			$this->strPseudo=$pseudo.'.';
 			$this->strName=$nom;
 			$this->strPrenom=$prenom;
 			$this->strEmail=$email;
 			$this->strMdp=$mdp1;
 			$this->strConfMdp=$mdp2;
 			$this->strAdresse=$adresse;
+			$this->strVille=$ville;
 			//Generation de la cle unique pour cryptage du mot de passe
 			$this->strSalt=strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
 			$this->strSalt='$5$rounds=5000$'.$this->strSalt.'$';
@@ -83,19 +85,12 @@ class NewUser{
 		 {		
 					//Cryptage du mot de passe avant envoie dans la BDD
 					$hash=crypt($this->strSalt,$this->strMdp);
-					
-					//Creation du tableau des variables à envoyer
-					$array=array(
-						"Pseudo"=>$this->strPseudo,
-						"Nom"=>$this->strName,
-						"Prenom"=>$this->strPrenom,
-						"Email"=>$this->strEmail,
-						"Salt"=>$this->strSalt,
-						"Mdp"=>$hash,
-						"Adresse"=>$this->strAdresse,
-					);
 					$bdd=Bdd::initialisation();
-					$bdd->objBdd->query("Insert Into Utilisateur (pseudo,nom,prenom,email,Salt,Mdp,ville) VALUES ('$this->strPseudo','$this->strName','$this->strPrenom','$this->strEmail','$this->strSalt','$hash','$this->strAdresse')" );
+					$id=$bdd->objBdd->query("Insert Into Utilisateur (nom,prenom,email,Salt,Mdp,ville,adresse) VALUES ('$this->strName','$this->strPrenom','$this->strEmail','$this->strSalt','$hash','$this->strVille','$this->strAdresse');
+					SET @last_id = LAST_INSERT_ID();
+					UPDATE Utilisateur set Pseudo=concat('$this->strPseudo',@last_id) where id='@last_id' ;
+					SELECT @last_id;");
+					$this->strPseudo=$this->strPseudo.$id;
 					Bdd::fermerBdd();
 		 }
 		public function sendinfo()

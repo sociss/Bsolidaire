@@ -6,9 +6,8 @@ if (isset($_GET['login']))
 	try
 	{	
 		$user = new Login($_POST['Pseudo'],$_POST['Mdp'],$_POST['baka']);
-		$user->databasecheck();
-		$user->startsession();
-		echo($_SESSION['user']);
+		$id=$user->databasecheck();
+		$user->startsession($id);
 	}
 	catch(Exception $e)
 	{		

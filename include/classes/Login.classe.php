@@ -13,7 +13,7 @@
 include "Valid.classe.php";
 include "base/Bdd.classe.php";
 class Login{
-
+	
     private $strPseudo;
 	private $strDummy;
 	private $strMdp;
@@ -71,15 +71,16 @@ class Login{
 					 Bdd::fermerBdd();
 					 throw new Exception($e->getMessage());
 				}
-				Bdd::fermerBdd();		
+				Bdd::fermerBdd();
+				return $donnees["id"];
 		 }	
 		 
-		 public function startsession()
+		 public function startsession($id)
 		 {
 			define("_PATH_TMP", "sessions");
 			ini_set('session.save_path', _PATH_TMP);
 			session_start();
-			$_SESSION['user']=$this->strPseudo;
+			$_SESSION['user']=$id;
 		 }
 		 
 		  public static function endsession()

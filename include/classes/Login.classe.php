@@ -11,6 +11,7 @@
 *===================================================================================================*
 */
 include "Valid.classe.php";
+include "base/Bdd.classe.php";
 class Login{
 
     private $strPseudo;
@@ -46,44 +47,45 @@ class Login{
 		//Verification du mdp et du pseudo dans la BDD (en attente de modification par utlisation de l'objet connection)
 		public function  databasecheck()
 		 {		
-				Bdd::initilisation();
+				$bdd=Bdd::initialisation();
 				try
 				{
-					$pdo->beginTransaction();
-					$row=$pdo->query('Select * from Utilisateur where Pseudo=\''.$this->strPseudo.'\' ');
-					if($row==FALSE)
+					$reponse=$bdd->objBdd->query('Select * from Utilisateur where Pseudo=\''.$this->strPseudo.'\' ');
+					$nb = $reponse->rowCount();
+					if($nb==0)
 					{
-						throw new Exception('Identifiants incorrects');
+						throw new Exception('Pseudo incorrect');
 					}
 					else
 					{
-						if(crypt($this->strMdp,$row['Salt'])!=$row['Mdp'])
+						$donnees = $reponse->fetch();
+						if(crypt($donnees["Salt"],$this->strMdp)!=$donnees['Mdp'])
 						{
-							throw new Exception('Identifiants incorrects');
-						}
-						else
-						{
-							echo 'Vous êtes maintenant log.';
+							throw new Exception('Mot de passe incorrect');
 						}
 					}
 					
 				}
 				catch(Exception $e)
-				{		
-					 erreur($e->getMessage());
+				{	
+					 Bdd::fermerBdd();
+					 throw new Exception($e->getMessage());
 				}
 				Bdd::fermerBdd();		
 		 }	
 		 
 		 public function startsession()
 		 {
+			define("_PATH_TMP", "sessions");
+			ini_set('session.save_path', _PATH_TMP);
 			session_start();
-			$S_SESSION['user']=$this->strPseudo;
+			$_SESSION['user']=$this->strPseudo;
 		 }
 		 
 		  public static function endsession()
 		 {
-			session_write_close();
+			$_SESSION = array(); 
+			session_destroy(); 
 		 }
 	
 /**

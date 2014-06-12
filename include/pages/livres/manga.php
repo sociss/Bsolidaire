@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <title>Bsolidaire - Les mangas</title>
-		<meta name="description" content="Bsolidaire project" />
-		<meta name="author" content="Lionel" />
-		<link rel="stylesheet" href="../../../styles/bibliotheque.css" />
-		<link rel="stylesheet" href="../../../styles/style.css" />
-		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" type="text/css" rel="stylesheet">
-		<!--[if lte IE 7]>
-			<link rel="stylesheet" href="styleie.css" type="text/css" media="screen" />
-		<![endif]-->
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	</head>
-	<body>
-		<?php 
-		try
-		{
-		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
-		}
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
-		?>
-		
-		<!-- Header -->
-		<?php include("../../header/header.php"); ?>
-		
-		<!-- Menu principal -->
-		<?php include("../../menu/menu.php"); ?>
-		
+<?php
+$bdd=Bdd::Initialisation();
+?>
 		<!-- Contenu principal -->
 		<div id="content">
 			<div class="conteneur cf">
@@ -44,7 +14,7 @@
 							<div class="feature-high">
 								<h1>Mangas</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'mangas'"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM Livres WHERE type = 'manga'"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
@@ -52,7 +22,7 @@
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 									<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -66,9 +36,3 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- Pied de page -->
-		<?php include("../../footer/footer.php"); ?>
-		
-	</body>
-</html>

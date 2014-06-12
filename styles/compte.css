@@ -1,0 +1,139 @@
+
+#content.myaccount {
+background-color: #f6f6f6;
+overflow: hidden;
+margin-top: 15px;
+color: #333;
+padding-bottom: 30px;
+}
+
+
+#content {
+padding: 10px 10px 0 10px;
+}
+
+.myaccount #col_gauche {
+    float:left;
+    margin: 20px 20px 0 20px;
+    width:30%;
+    height: 100%;
+}
+.myaccount #col_centre {
+margin: 20px 20px 0 0;
+height: 100%;
+float: left;
+width: 62%;
+}
+
+#monCompte{width:100%;background-color:#f6f6f6;}
+#monCompte h2 a,#monCompte h2 a:hover{text-decoration:none;display:block;}
+#monCompte dt{min-height:50px;font-size:1.3em;line-height:50px;padding-left:10px;font-weight:normal;color:#323232;border-bottom:1px solid #d4d4d4;cursor:pointer;}
+#monCompte dt:hover,#monCompte dt.opened{background-color:#919191;color:#FFF;}
+#monCompte li{line-height:22px;border-bottom:1px solid #d4d4d4;color:#555;list-style:none;}
+#monCompte li:hover,#monCompte li.selected{background-color:#f1c40f;color:#FFF;}
+#monCompte li a,#monCompte dt a{display:block;}
+#monCompte li a{padding:13px 0 13px 5px;color:#555;}
+#monCompte dt a{color:#323232;}
+#monCompte li:hover a,#monCompte dt:hover a,#monCompte li.selected a,#monCompte dt.opened a{color:#FFF;text-decoration:none;}
+.h2MyAccount{text-transform:uppercase;color:#FFF;font-size:1.3em;text-align:center;padding:7px 0;margin-bottom:25px;}
+.h2MyAccount a{color:#FFF;}
+.arrow_Bgrey_box{position:relative;background:#333;}
+.arrow_Bgrey_box:after{top:100%;left:50%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(51,51,51,0);border-top-color:#333;border-width:10px;margin-left:-10px;}
+.pictBase{width:27px;height:27px;float:left;margin-right:5px;}
+
+
+.titreblock{
+	display: inline-block;
+	margin-top: 50px;
+}
+.infoperso{
+	display: inline-block;
+	background-color: #ffffff;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.sedeconnecter .bienvenu {
+color: #777;
+width: 75%;
+font-size: 1.8em;
+}
+.sedeconnecter h2 {
+float: left;
+}
+h2, h3, h4, h5, h6 {
+margin: 0;
+}
+
+.deco {
+float: right;
+line-height: 22px;
+color: #a5a5a5;
+}
+.etat{
+line-height: 22px;
+color: #a5a5a5;
+}
+a {
+text-decoration: none;
+}
+.mes-commandes{
+	
+	display: block; 
+	height: 246px;
+	margin: 0;
+}
+.mes-commandes ul{
+	padding: 0;
+}
+table{
+	color: black;
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	
+}
+table tr{
+	border: 1px solid #CFCFCF;
+}
+table td, table th{
+	padding: 5px 8px;
+}
+table th{
+	text-align: left;
+}
+table tr:nth-child(2n+1)
+{
+    background-color: #f0f0f0;
+}
+label
+{
+    display: block;
+    width: 150px;
+    float: left;
+}
+.titreblock>h2 {
+display: block;
+font-size: 1.5em;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+}
+#envoiInfo{
+	border:none;
+	background-color: transparent;
+	color: #a5a5a5;
+	cursor: pointer;
+	font: small arial,sans-serif;
+
+
+}
+
+
+

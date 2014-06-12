@@ -2,7 +2,11 @@
 	<div id="Login">
 		<section>
 			<div id="form" style="background-color:white;height:100%;padding-left:10%;padding-top:10%;padding-bottom:10%;">
-					<div id="form" style="background-color:white;height:100%;padding-left:10%;padding-top:10%;padding-bottom:10%;">				
+					
+					<?php
+						if(!isset($_SESSION['user']))
+						{
+						echo'<div id="form" style="background-color:white;height:100%;padding-left:10%;padding-top:10%;padding-bottom:10%;">				
 						<form id="inscription_form" onsubmit="return verifsaisieLogin()" action="index.php?login" method="post">
 						<h1 >Log-In</h1>
 						<label>Pseudo:</label>
@@ -16,7 +20,13 @@
 							<input type="text" style="display:none" name="baka">
 							<input id="btn_send_message" class="send" type="submit" value="Envoie" name="Inscription">
 						</form>
-					</div>
+						</div>';
+					}
+					else
+					{
+						echo "Vous êtes déjà connecté.";
+					}
+					?>
 			</div>
 		</section>
 	</div>

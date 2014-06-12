@@ -10,8 +10,7 @@
 */ 
 
 $config = array();
-$config['basetype'] = 'mysql';
-$config['host'] = 'localhost';
-$config['user'] = 'localhost';
-$config['mdp'] = 'root';
+$config['host'] = 'bsolidaire.mysql.db';
+$config['user'] = 'bsolidaire';
+$config['mdp'] = 'EyEynnNRtVpB';
 $config['base'] = 'bsolidaire';

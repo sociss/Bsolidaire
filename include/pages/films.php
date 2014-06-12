@@ -1,13 +1,6 @@
-		<?php 
-		try
-		{
-		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
-		}
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
-		?>
+<?php 
+$bdd=Bdd::initialisation();
+?>
 		
 		<!-- Contenu principal -->
 		<div id="content">
@@ -22,7 +15,7 @@
 							<div class="feature-high">
 								<h1>Animation</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM films WHERE type = 'animation' LIMIT 5); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM Films WHERE type = 'animation' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
@@ -30,7 +23,7 @@
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -39,7 +32,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="films/animation.php">PLUS</a>
+									<a href="index.php?page=animation">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -50,7 +43,7 @@
 							<div class="feature-high">
 								<h1>Comédie</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM films WHERE type = 'comedie' LIMIT 5); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM Films WHERE type = 'comedie' LIMIT 5"); 
 								while ($donnees = $reponse->fetch())
 								{   
 								?>
@@ -58,7 +51,7 @@
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -67,7 +60,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="films/comedie.php">PLUS</a>
+									<a href="index.php?page=comedie">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -78,7 +71,7 @@
 							<div class="feature-high">
 								<h1>Horreur</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM films WHERE type = 'horreur' LIMIT 5"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM Films WHERE type = 'horreur' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
@@ -86,7 +79,7 @@
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -95,7 +88,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="films/horreur.php">PLUS</a>
+									<a href="index.php?page=horreur">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -106,7 +99,7 @@
 							<div class="feature-high">
 								<h1>Science-fiction</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM films WHERE type = 'sf' LIMIT 5"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM Films WHERE type = 'sf' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
@@ -114,7 +107,7 @@
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 									<h3><?php echo html_entity_decode($donnees['realisateur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -123,7 +116,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="films/sf.php">PLUS</a>
+									<a href="index.php?page=sf">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>

@@ -1,12 +1,5 @@
 		<?php 
-		try
-		{
-		    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
-		}
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
+		$bdd=Bdd::initialisation();
 		?>
 		
 		<!-- Contenu principal -->
@@ -22,15 +15,15 @@
 							<div class="feature-high">
 								<h1>Jeux de rôle</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'jdr' LIMIT 5"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM JeuxSociete WHERE type = 'jdr' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<h3><?php echo html_entity_decode($donnees['editeur']); ?></h3>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -39,7 +32,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="jeuxsociete/jdr.php">PLUS</a>
+									<a href="index.php?page=jdr">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -50,15 +43,15 @@
 							<div class="feature-high">
 								<h1>En famille</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'famille' LIMIT 5"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM JeuxSociete WHERE type = 'famille' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<h3><?php echo html_entity_decode($donnees['editeur']); ?></h3>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -67,7 +60,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="jeuxsociete/famille.php">PLUS</a>
+									<a href="index.php?page=famille">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -78,15 +71,15 @@
 							<div class="feature-high">
 								<h1>Jeux de cartes</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'jdc' LIMIT 5"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM JeuxSociete WHERE type = 'jdc' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<h3><?php echo html_entity_decode($donnees['editeur']); ?></h3>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -95,7 +88,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="jeuxsociete/cartes.php">PLUS</a>
+									<a href="index.php?page=jdc">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -106,15 +99,15 @@
 							<div class="feature-high">
 								<h1>Quizz</h1>
 								<?php
-								$reponse = $bdd->query("SELECT * FROM jeux_societe WHERE type = 'quizz' LIMIT 5"); 
+								$reponse = $bdd->objBdd->query("SELECT * FROM JeuxSociete WHERE type = 'quizz' LIMIT 5"); 
 								while ($donnees = $reponse->fetch()) 
 								{   
 								?>
 								<div class="cover iblock">
 									<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 									<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
-									<h3><?php echo html_entity_decode($donnees['éditeur']); ?></h3>
-									<p><?php echo html_entity_decode($donnees['description']); ?></p>
+									<h3><?php echo html_entity_decode($donnees['editeur']); ?></h3>
+									<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 								</div>
 								<?php 
 								}
@@ -123,7 +116,7 @@
 							</div>
 							<div class="feature-down">
 								<div class="more">
-									<a href="jeuxsociete/quizz.php">PLUS</a>
+									<a href="index.php?page=quizz">PLUS</a>
 								</div>
 							</div>
 							<div class="clear"></div>

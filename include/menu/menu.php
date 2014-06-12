@@ -60,8 +60,8 @@
     $arrayIcone= array(
          'Livres'=> "background-image: url(images/livres.png);",
          'Films'=> "background-image: url(images/films.png);",
-         'Jeux de vidéo'=> "background-image: url(images/jeuxvideo.png);",
-         'Jeux de société'=> "background-image: url(images/jeuxsociete.png);",
+         'Jeux Vidéo'=> "background-image: url(images/jeuxvideo.png);",
+         'Jeux de Société'=> "background-image: url(images/jeuxsociete.png);",
          'Scolaire'=> "background-image: url(images/livres.png);",
          'Bsolidaire'=> "background-image: url(images/livres.png);",
     );

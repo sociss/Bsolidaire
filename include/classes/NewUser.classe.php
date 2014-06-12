@@ -94,8 +94,8 @@ class NewUser{
 						"Mdp"=>$hash,
 						"Adresse"=>$this->strAdresse,
 					);
-					Bdd::initialisation();
-					Bdd::insert("Utilisateur",$array);
+					$bdd=Bdd::initialisation();
+					$bdd->objBdd->query("Insert Into Utilisateur (pseudo,nom,prenom,email,Salt,Mdp,ville) VALUES ('$this->strPseudo','$this->strName','$this->strPrenom','$this->strEmail','$this->strSalt','$hash','$this->strAdresse')" );
 					Bdd::fermerBdd();
 		 }
 		public function sendinfo()

@@ -24,19 +24,19 @@
 			<div class="conteneur">
 				
 				<!-- Contenu -->
-				<div class="main-description">
+				<div id="main-description" style="margin-left:10%">
 					<section class="feature">
 					<div id="produit">
-						<span id="cover-container">
-							<img class="cover" src="cov.jpg" alt="" />
+						<span id="cover-container" class="iblock">
+							<img class="cover" src="cover.jpg" alt="" />
 						</span>
-						<div id="titre">
+						<div id="titre" class="iblock">
 							<h1 class="title">Titre</h1>
 							<h2 class="author">Auteur</h2>
 							<p class="etat">Etat:Disponible</p>
 						</div>
-						<div id="emprunt">
-							<a href="index.php?page=contact&rent=ok" class="rent">Emprunter</a>
+						<div id="emprunt" class="iblock">
+							<a href="index.php?page=descr_livre&rent=ok" class="rent"><button>Emprunter</button></a>
 						</div>
 					</div>
 					<div id="detail">
@@ -49,10 +49,8 @@
 					</div>
 					<div  id="infosup">
 						<h1 class="title">Informations complémentaires</h1>
-						<article>
 							<p>Auteur</p>
 							<p>Editeur</p>                                                                                      
-						</article>
 					</div>
 					<div id="suggestion">
 						<h1 class="title">Si vous avez aimé $produit,vous aimerez peut être: </h1>

@@ -1,4 +1,4 @@
-/*--------------------------------- Reset -------------------------------------*/
+ /*--------------------------------- Reset -------------------------------------*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -49,7 +49,7 @@ body{
 }
 .conteneur{
     margin: 0 auto;
-    max-width: 1080px;
+    max-width: 1243px;
     position: relative;
 }
 .img{
@@ -71,18 +71,21 @@ h1 {
     font-size: 1.2em;
     font-weight: 300;
 }
-
+h6 {
+    font-size: 1em;
+    font-weight: 300;
+}
 /*--------------------------------- Header ---------------------------------------*/
 header {
     background-color: #C2C4C7;
     padding: 0.5em 0;
 }
 .left {
-    width: 10;
+    width: 24%;
 }
 .left >.logo {
     display: block;
-    width: 10%;
+    width: 22%;
     min-width:58px;
 }
 .part1 {
@@ -215,7 +218,7 @@ header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     border: medium none;
     min-width: 200px;
-    width:  20.4%;
+    width: 220px;
 }
 .alt-nav>li {
     line-height: normal;
@@ -332,7 +335,10 @@ header {
     color: #FFFFFF;
     background-color: #658092;
 }
-
+/*---------------------------- Section principale --------------------------------*/
+#section_principal{
+    width: 79.3%;
+}
 /*---------------------------------- Footer --------------------------------------*/
 .titre {
     font-size: 1.45em;

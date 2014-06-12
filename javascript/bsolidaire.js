@@ -96,13 +96,14 @@ var Bsolidaire={
          *
          * @param       name       {string}     est une chaîne représentant le nom du noeud voulu.
          * @param       parent     {object}     [optionel par defaut document] est un objet de type element.
+         * @param       nb         {int}        [optionel par defaut le nombre d'element présent dans la page] est un chiffre.
          * @return      temp       {array}      est un tableau contenant le ou les élements possédant le nom du noeud passé en paramétre.
          *
         */
-        byName:function(name,parent){
+        byName:function(name,parent,nb){
                 var i=0,temp=[],
                 p= parent || document,
-                e = p.getElementsByTagName(name),el=e.length;
+                e = p.getElementsByTagName(name),el=nb || e.length;
                 for(i;i<el;i++){
                         temp.push(e[i]);
                 }
@@ -846,7 +847,17 @@ var Bsolidaire={
             }else{
                 // Envoyer à l'émulateur pour les vieux navigateurs
             }
-        }()
+        }(),
+        heightDim:function(elem,retranche){
+            var i=0,l=retranche.length,taille=0;
+            for(i;i<l;i++){
+                taille+= retranche[i].offsetHeight;
+            }
+            elem.style.minHeight=this.winDim().h - taille+'px';
+        },
+        height:function(elem,taille){
+            elem.style.minHeight=taille;
+        }
 };
 // Création du raccourci $B
 (!window.$B)?window.$B=Bsolidaire:alert('Le raccourci du framework Bsolidaire ne peut pas être mis en place');

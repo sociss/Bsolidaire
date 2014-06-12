@@ -18,11 +18,9 @@ class Bdd{
     static $objBddInstance;
     public $intLastInsertId;
     public $objBdd;
-    public $strBasetype;
     public $strMdp;
     public $strUser;
     public $strDbName;
-    public $strBddType;
 	public $strHost;
 
     /**
@@ -32,20 +30,20 @@ class Bdd{
     */
     private function __construct(){
         // Paramétres de connexion contenu dans le fichier connect_bd.php dans le dossier include/parametres
-        require $_SERVER['DOCUMENT_ROOT'].'/include/parametres/connect_bd.php';
-        $this->strBasetype     = $config['basetype'];
+        require 'include/parametres/connect_bd.php';
         $this->strHost     = $config['host'];
         $this->strUser     = $config['user'];
         $this->strMdp = $config['mdp'];
         $this->strDbName   = $config['base'];
         $this->intLastInsertId = 0;
-         try {			
+         try {
              /* Information classe PDO : http://www.php.net/manual/fr/class.pdo.php */
-             $this->objBdd = new PDO($this->strBaseType.':host='.$this->strHost.';dbname='.$this->strDbName, $this->strUser, $this->strMdp);
+             $this->objBdd = new PDO('mysql:host='.$this->strHost.';dbname='.$this->strDbName, $this->strUser, $this->strMdp);
             /* Rapport d'erreurs : Emet une exception */
              $this->objBdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);					
         } catch (PDOException $e) {
-                $this->exeption($e);
+                var_dump($e);
+				$this->exeption($e);
         } 	
     }
     
@@ -56,7 +54,7 @@ class Bdd{
      * @param string $strMess message, par default vide, que l'on souhaite enregistrer dans le rapport d'erreur
     */
     public function exeption($e,$strMess=''){
-        Exception:enregistreException($e,$strMess);
+        /*Exception:enregistreException($e,$strMess);*/
     }
     
     /** 
@@ -185,10 +183,9 @@ class Bdd{
      * @param 
     */
     public function select(){
-
+   
     }
-	
-
+    
     /**
      * erreur
      * Gestion des erreurs soulevés dans une méthode de la class bdd (hors erreur PDO)

@@ -1,12 +1,5 @@
 <?php 
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=bsolidaire', 'root', 'root');
-}
-catch(Exception $e)
-{
-	die('Erreur : '.$e->getMessage());
-}
+$bdd=Bdd::initialisation();
 ?>
 
 <!-- Contenu principal -->
@@ -22,7 +15,7 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Bandes dessinées</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'bd' LIMIT 5"); 
+						$reponse = $bdd->objBdd->query("SELECT * FROM Livres WHERE type = 'bd' LIMIT 5"); 
 						while ($donnees = $reponse->fetch())
 						{   
 						?>
@@ -30,7 +23,7 @@ catch(Exception $e)
 							<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 							<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 							<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
-							<p><?php echo html_entity_decode($donnees['description']); ?></p>
+							<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 						</div>
 						<?php 
 						}
@@ -39,7 +32,7 @@ catch(Exception $e)
 					</div>
 					<div class="feature-down">
 						<div class="more">
-							<a href="livres/bd.php">PLUS</a>
+							<a href="index.php?page=bd">PLUS</a>
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -50,7 +43,7 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Mangas</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'mangas' LIMIT 5"); 
+						$reponse = $bdd->objBdd->query("SELECT * FROM Livres WHERE type = 'manga' LIMIT 5"); 
 						while ($donnees = $reponse->fetch())
 						{   
 						?>
@@ -58,7 +51,7 @@ catch(Exception $e)
 							<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 							<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 							<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
-							<p><?php echo html_entity_decode($donnees['description']); ?></p>
+							<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 						</div>
 						<?php 
 						}
@@ -67,7 +60,7 @@ catch(Exception $e)
 					</div>
 					<div class="feature-down">
 						<div class="more">
-							<a href="livres/manga.php">PLUS</a>
+							<a href="index.php?page=manga">PLUS</a>
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -78,7 +71,7 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Romans</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'romans' LIMIT 5"); 
+						$reponse = $bdd->objBdd->query("SELECT * FROM Livres WHERE type = 'roman' LIMIT 5"); 
 						while ($donnees = $reponse->fetch())
 						{   
 						?>
@@ -86,7 +79,7 @@ catch(Exception $e)
 							<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 							<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 							<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
-							<p><?php echo html_entity_decode($donnees['description']); ?></p>
+							<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 						</div>
 						<?php 
 						}
@@ -95,7 +88,7 @@ catch(Exception $e)
 					</div>
 					<div class="feature-down">
 						<div class="more">
-							<a href="livres/romans.php">PLUS</a>
+							<a href="index.php?page=romans">PLUS</a>
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -106,7 +99,7 @@ catch(Exception $e)
 					<div class="feature-high">
 						<h1>Poèmes</h1>
 						<?php
-						$reponse = $bdd->query("SELECT * FROM livres WHERE type = 'poemes' LIMIT 5"); 
+						$reponse = $bdd->objBdd->query("SELECT * FROM Livres WHERE type = 'poeme' LIMIT 5"); 
 						while ($donnees = $reponse->fetch())
 						{   
 						?>
@@ -114,7 +107,7 @@ catch(Exception $e)
 							<img src="<?php echo html_entity_decode($donnees['image']); ?>" />
 							<h2><?php echo html_entity_decode($donnees['titre']); ?></h2>
 							<h3><?php echo html_entity_decode($donnees['auteur']); ?></h3>
-							<p><?php echo html_entity_decode($donnees['description']); ?></p>
+							<p><?php echo html_entity_decode(substr($donnees['description'], 0, 100)); ?></p>
 						</div>
 						<?php 
 						}
@@ -123,7 +116,7 @@ catch(Exception $e)
 					</div>
 					<div class="feature-down">
 						<div class="more">
-							<a href="livres/poemes.php">PLUS</a>
+							<a href="index.php?page=poemes">PLUS</a>
 						</div>
 					</div>
 					<div class="clear"></div>
